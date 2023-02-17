@@ -1,0 +1,21 @@
+.front-card{
+    background: url('../images/bg-card-front.png') no-repeat center/cover;
+    
+    height: 200px;
+    width: 320px;
+    border-radius: 10px;
+
+}
+
+.back-card{
+    background: url('../images/bg-card-back.png') no-repeat center/cover;
+    height: 200px;
+    width: 320px;
+    border-radius: 10px;
+
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+}
