@@ -1,11 +1,21 @@
 
+.container{
+  display: flex;
+}
+
+.form-container{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 .right-side{
     margin: auto;
+    margin-left: 17vw;
   }
   .form{
     display: flex;
     flex-direction: column;
-    width: 60%;
+
   }
   
   .form label{
@@ -22,7 +32,8 @@
     margin-left: 2px;
   }
   
-  .cvc{
+  .cvc-label{
+    margin-right: 8vw;
     
   }
   input{
@@ -47,4 +58,10 @@
   button:hover{
     background-color: hsl(279, 44%, 20%);
     cursor: pointer;
+  }
+
+  .cvc-exp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }

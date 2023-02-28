@@ -8,15 +8,21 @@ import logo from '../images/card-logo.svg'
 
 const Form = () =>{
 
-       const [cardName, setName] = useState("Wisdom Obianime");
-       const [cardNumber, setCardNumber] = useState("0000 0000 0000 0000 000");
-       const [date, setDate] = useState("01/23");
-       const [cvc, setCvc] = useState("000")
+       const [cardName, setName] = useState("");
+       const [cardNumber, setCardNumber] = useState("");
+       const [date, setDate] = useState("");
+       const [cvc, setCvc] = useState("")
 
+      const handleCardNumber = (e) =>{
+        if(e.target.value <= 9999999999999999999)
+        {
+          setCardNumber(e.target.value)
+        }
+      }
 
        return(
        
-              <div>
+              <div className="container">
               <div className='left-side'>
               <picture>
                   <source media = "(min-width: 1024px)" srcSet={bgdesktop}/>
@@ -44,7 +50,7 @@ const Form = () =>{
 
 
         <div className='right-side'>
-        <form>
+        <form className="form-container">
           <div className='form'>
             <label>CardHolder Name</label>
             <input type="text" 
@@ -63,13 +69,15 @@ const Form = () =>{
                     placeholder='eg. 1234 5678 9123 0000'
                     maxLength={19}
                     required
-                    value={cardNumber
-                     .replace(/\s/g, "")
-                     .replace(/(\d{4})/g, "$1 ")
-                     .trim()}
-                   onChange={(e) => setCardNumber(e.target.value)}
+                    value={cardNumber}
+                    onChange = {handleCardNumber}
+                   
              />
-            <label>EXP. Date(MM/YY)</label>
+             <div className="cvc-exp">
+             <label>EXP. Date(MM/YY)</label>
+             <label className="cvc-label">CVC</label>
+             </div>
+            
           
             <div className='exp-date'>
             <input type="month" 
@@ -78,7 +86,7 @@ const Form = () =>{
                     placeholder='MM'
                     required
                     value={date}
-                     onChange={(e) => setDate(e.target.value)}
+                    onChange={(e) => setCardNumber(e.target.value)}
              />
   
             <input type="month" 
@@ -89,8 +97,8 @@ const Form = () =>{
                     value={date}
                      onChange={(e) => setDate(e.target.value)}
              />
-             <div className='cvc'>
-             <label >CVC</label>
+             
+            
               <input type="number" 
                     name="cvc"
                     id='cvc'
@@ -100,7 +108,7 @@ const Form = () =>{
                     value={cvc}
                      onChange={(e) => setCvc(e.target.value)}
              />
-             </div>
+            
             
             </div>
             <button>Confirm</button>
